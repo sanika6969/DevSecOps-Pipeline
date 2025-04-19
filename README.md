@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🚀 Corporate-Grade CI/CD Pipeline with DevSecOps
 
 ## 📌 Overview
@@ -31,3 +32,7 @@ This project implements a **fully automated, secure, and scalable CI/CD pipeline
 
 ## 📖 Read the Full Blog  
 For a detailed walkthrough of this project, check out my blog post: [**ultimate-corporate-grade-devsecops-pipeline**](https://itspraduman.hashnode.dev/ultimate-corporate-grade-devsecops-pipeline)  
+=======
+# DevSecOps-Pipeline
+Ultimate Corporate-Grade DevSecOps Pipeline: Automated Kubernetes Deployment with Security, CI/CD, and Monitoring on VSphere(On-prem cloud)
+>>>>>>> 6d7fdcf1bcc9a3de940521056fed1dfbbf846eb4
