@@ -6,9 +6,17 @@ public class BoardGame {
     private int minPlayers;
     private int maxPlayers;
     private String gameType;
+    private Long id;
  
     // Add the getter methods
-    public String getName() {
+ public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
+   
+ public String getName() {
         return name;
     }
  
