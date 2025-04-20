@@ -1,11 +1,11 @@
 # Stage 1: Build the Java app (only needed if you don't have the JAR file)
-FROM maven:3.9.6-eclipse-temurin-17 AS builder
+FROM maven:3.9.6-eclipse-temurin-21 AS builder
 WORKDIR /app
 COPY . .
 RUN mvn clean package -DskipTests
 
 # Stage 2: Use a minimal secure base image for running Java
-FROM gcr.io/distroless/java17-debian12
+FROM gcr.io/distroless/java21-debian12
 
 # Set application directory
 WORKDIR /app
