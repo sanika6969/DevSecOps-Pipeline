@@ -56,27 +56,35 @@
       <scope>provided</scope>
     </dependency>
 
-    <!-- Mockito for mocking in tests -->
+    <!-- Spring Test Dependency for JUnit 5 -->
     <dependency>
-        <groupId>org.mockito</groupId>
-        <artifactId>mockito-core</artifactId>
-        <version>4.0.0</version> <!-- Use the latest version -->
-        <scope>test</scope>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
+      <version>5.3.15</version> <!-- Ensure it's compatible with your Spring Boot version -->
+      <scope>test</scope>
     </dependency>
 
-    <!-- JUnit 5 for unit tests -->
+    <!-- JUnit 5 Dependencies -->
     <dependency>
-        <groupId>org.junit.jupiter</groupId>
-        <artifactId>junit-jupiter-api</artifactId>
-        <version>5.8.2</version> 
-        <scope>test</scope>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>5.8.2</version> <!-- Use the latest stable version -->
+      <scope>test</scope>
     </dependency>
 
     <dependency>
-        <groupId>org.junit.jupiter</groupId>
-        <artifactId>junit-jupiter-engine</artifactId>
-        <version>5.8.2</version> 
-        <scope>test</scope>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>5.8.2</version> <!-- Use the latest stable version -->
+      <scope>test</scope>
+    </dependency>
+
+    <!-- Mockito for Mocking in Tests -->
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>4.0.0</version>
+      <scope>test</scope>
     </dependency>
 
     <!-- Lombok for boilerplate reduction -->
@@ -87,7 +95,7 @@
       <scope>provided</scope>
     </dependency>
 
-    <!-- Spring Boot Starter Test (includes MockMvc and other testing utilities) -->
+    <!-- Spring Boot Testing Starter -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
@@ -125,7 +133,10 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>3.2.5</version>
+        <version>3.0.0-M5</version> <!-- Latest version -->
+        <configuration>
+          <useModulePath>false</useModulePath>
+        </configuration>
       </plugin>
 
       <!-- Deploy plugin (Nexus) -->
