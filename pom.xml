@@ -23,8 +23,8 @@
   <properties>
     <!-- Use Java 17 -->
     <java.version>8</java.version>
-    <maven.compiler.source>${java.version}</maven.compiler.source>
-    <maven.compiler.target>${java.version}</maven.compiler.target>
+    <maven.compiler.source>$21</maven.compiler.source>
+    <maven.compiler.target>$21</maven.compiler.target>
 
     <!-- Jacoco version compatible with JDK17 -->
     <jacoco.version>0.8.11</jacoco.version>
