@@ -1,118 +1,86 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
 <modelVersion>4.0.0</modelVersion>
-
-
-
-    <groupId>com.boardgame</groupId>
-<artifactId>BoardGame</artifactId>
+ 
+    <groupId>com.boardgame</groupId>
+<artifactId>boardgame</artifactId>
 <version>1.0.0</version>
 <packaging>jar</packaging>
-<name>BoardGame</name>
-<description>Spring Boot Project for Board Game</description>
-
-
-
-    <properties>
+ 
+    <name>BoardGame</name>
+<description>DevSecOps Spring Boot Project</description>
+ 
+    <properties>
 <java.version>21</java.version>
 <maven.compiler.source>21</maven.compiler.source>
 <maven.compiler.target>21</maven.compiler.target>
 </properties>
-
-
-
-    <dependencies>
+ 
+    <dependencies>
 <!-- Spring Boot Starter -->
 <dependency>
 <groupId>org.springframework.boot</groupId>
 <artifactId>spring-boot-starter</artifactId>
 </dependency>
-
-
-
-        <!-- Spring Web -->
+ 
+        <!-- Web Dependency -->
 <dependency>
 <groupId>org.springframework.boot</groupId>
 <artifactId>spring-boot-starter-web</artifactId>
 </dependency>
-
-
-
-        <!-- Spring Boot Test -->
+ 
+        <!-- Test -->
 <dependency>
 <groupId>org.springframework.boot</groupId>
 <artifactId>spring-boot-starter-test</artifactId>
 <scope>test</scope>
 </dependency>
-
-
-
-        <!-- Lombok (optional but common) -->
-<dependency>
-<groupId>org.projectlombok</groupId>
-<artifactId>lombok</artifactId>
-<optional>true</optional>
-</dependency>
 </dependencies>
-
-
-
-    <build>
+ 
+    <build>
 <plugins>
-<!-- Spring Boot Plugin -->
+<!-- Use this plugin version for Java 21 -->
 <plugin>
-<groupId>org.springframework.boot</groupId>
-<artifactId>spring-boot-maven-plugin</artifactId>
-</plugin>
-
-
-
-            <!-- Maven Compiler Plugin -->
-<plugin>
+<groupId>org.apache.maven.plugins</groupId>
 <artifactId>maven-compiler-plugin</artifactId>
-<version>3.10.1</version>
+<version>3.11.0</version>
 <configuration>
-<release>${java.version}</release>
+<source>${java.version}</source>
+<target>${java.version}</target>
 </configuration>
 </plugin>
-
-
-
-            <!-- Maven Deploy Plugin -->
-<plugin>
+ 
+            <plugin>
+<groupId>org.apache.maven.plugins</groupId>
+<artifactId>maven-surefire-plugin</artifactId>
+<version>3.2.5</version>
+</plugin>
+ 
+            <plugin>
 <groupId>org.apache.maven.plugins</groupId>
 <artifactId>maven-deploy-plugin</artifactId>
 <version>3.1.1</version>
 </plugin>
-</plugins>
-</build>
-
-
-
-    <distributionManagement>
-
-        <repository>
-
-            <id>maven-releases</id>
-
-            <url>http://10.25.157.153:8081/repository/maven-releases/</url>
-
-        </repository>
-
-        <snapshotRepository>
-
-            <id>maven-snapshots</id>
-
-            <url>http://10.25.157.153:8081/repository/maven-snapshots/</url>
-
-        </snapshotRepository>
-
-    </distributionManagement>
-
-
-
-</project>
  
+            <!-- Spring Boot Plugin -->
+<plugin>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-maven-plugin</artifactId>
+<version>3.2.5</version>
+</plugin>
+</plugins>
+
+     <distributionManagement>
+        <repository>
+            <id>maven-releases</id>
+            <url>http://10.25.157.153:8081/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>maven-snapshots</id>
+            <url>http://10.25.157.153:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+</build>
+</project>
