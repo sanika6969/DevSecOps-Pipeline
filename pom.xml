@@ -1,158 +1,161 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-                             https://maven.apache.org/xsd/maven-4.0.0.xsd">
-
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+ 
   <modelVersion>4.0.0</modelVersion>
-
+ 
   <parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.5.6</version>
-    <relativePath/> <!-- lookup parent from repository -->
-  </parent>
-
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-starter-parent</artifactId>
+<version>2.5.6</version>
+<relativePath/> <!-- lookup parent from repository -->
+</parent>
+ 
   <groupId>com.javaproject</groupId>
-  <artifactId>database_service_project</artifactId>
-  <version>0.0.1</version>
-  <name>database_service_project</name>
-  <description>Project for Spring Boot</description>
-  <packaging>jar</packaging>
-
+<artifactId>database_service_project</artifactId>
+<version>0.0.1</version>
+<name>database_service_project</name>
+<description>Spring Boot project with CI/CD and DevSecOps integration</description>
+<packaging>jar</packaging>
+ 
   <properties>
-    <!-- Use Java 17 -->
-    <java.version>21</java.version>
-    <maven.compiler.source>21</maven.compiler.source>
-    <maven.compiler.target>21</maven.compiler.target>
-
-    <!-- Jacoco version compatible with JDK17 -->
-    <jacoco.version>0.8.11</jacoco.version>
-  </properties>
-
+<java.version>21</java.version>
+<maven.compiler.source>21</maven.compiler.source>
+<maven.compiler.target>21</maven.compiler.target>
+<jacoco.version>0.8.11</jacoco.version>
+<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+</properties>
+ 
   <dependencyManagement>
-    <dependencies>
-      <!-- Override older Javassist to a JDK17‑compatible version -->
-      <dependency>
-        <groupId>org.javassist</groupId>
-        <artifactId>javassist</artifactId>
-        <version>3.30.2-GA</version>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
-
+<dependencies>
+<dependency>
+<groupId>org.javassist</groupId>
+<artifactId>javassist</artifactId>
+<version>3.30.2-GA</version> <!-- JDK 17+ compatible -->
+</dependency>
+</dependencies>
+</dependencyManagement>
+ 
   <dependencies>
-    <!-- Spring Boot Starters -->
+<!-- Spring Boot Starters -->
+<dependency>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+ 
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-security</artifactId>
-    </dependency>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+ 
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-data-jdbc</artifactId>
-    </dependency>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-starter-security</artifactId>
+</dependency>
+ 
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-thymeleaf</artifactId>
-    </dependency>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-starter-data-jdbc</artifactId>
+</dependency>
+ 
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-data-jpa</artifactId>
-    </dependency>
-
-    <!-- Thymeleaf Extras for Spring Security -->
-    <dependency>
-      <groupId>org.thymeleaf.extras</groupId>
-      <artifactId>thymeleaf-extras-springsecurity5</artifactId>
-    </dependency>
-
-    <!-- H2 Database (runtime) -->
-    <dependency>
-      <groupId>com.h2database</groupId>
-      <artifactId>h2</artifactId>
-      <scope>runtime</scope>
-    </dependency>
-
-    <!-- Lombok (provided) -->
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <version>1.18.32</version>
-      <scope>provided</scope>
-    </dependency>
-
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-starter-thymeleaf</artifactId>
+</dependency>
+ 
+    <!-- Thymeleaf + Spring Security integration -->
+<dependency>
+<groupId>org.thymeleaf.extras</groupId>
+<artifactId>thymeleaf-extras-springsecurity5</artifactId>
+</dependency>
+ 
+    <!-- Runtime Database (H2 for dev/testing) -->
+<dependency>
+<groupId>com.h2database</groupId>
+<artifactId>h2</artifactId>
+<scope>runtime</scope>
+</dependency>
+ 
+    <!-- Lombok -->
+<dependency>
+<groupId>org.projectlombok</groupId>
+<artifactId>lombok</artifactId>
+<version>1.18.32</version>
+<scope>provided</scope>
+</dependency>
+ 
     <!-- Testing -->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-test</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.security</groupId>
-      <artifactId>spring-security-test</artifactId>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
-
+<dependency>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-starter-test</artifactId>
+<scope>test</scope>
+</dependency>
+<dependency>
+<groupId>org.springframework.security</groupId>
+<artifactId>spring-security-test</artifactId>
+<scope>test</scope>
+</dependency>
+</dependencies>
+ 
   <build>
-    <plugins>
-      <!-- Compile with Java 17 -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.1</version>
-        <configuration>
-          <release>${java.version}</release>
-        </configuration>
-      </plugin>
-
-      <!-- Jacoco for code coverage -->
-      <plugin>
-        <groupId>org.jacoco</groupId>
-        <artifactId>jacoco-maven-plugin</artifactId>
-        <version>${jacoco.version}</version>
-        <executions>
-          <execution>
-            <id>prepare-agent</id>
-            <goals>
-              <goal>prepare-agent</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>report</id>
-            <phase>test</phase>
-            <goals>
-              <goal>report</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-
-      <!-- Spring Boot Repackage -->
-      <plugin>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-maven-plugin</artifactId>
-      </plugin>
-    </plugins>
-
-           <distributionManagement>
-        <repository>
-            <id>maven-releases</id>
-            <url>http://10.25.157.153:8081/repository/maven-releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>maven-snapshots</id>
-            <url>http://10.25.157.153:8081/repository/maven-snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
-
-           
-  </build>
-         
-
-
+<plugins>
+<!-- Java Compiler Plugin -->
+<plugin>
+<groupId>org.apache.maven.plugins</groupId>
+<artifactId>maven-compiler-plugin</artifactId>
+<version>3.11.0</version>
+<configuration>
+<release>${java.version}</release>
+</configuration>
+</plugin>
+ 
+      <!-- Spring Boot Plugin -->
+<plugin>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-maven-plugin</artifactId>
+</plugin>
+ 
+      <!-- JaCoCo Code Coverage -->
+<plugin>
+<groupId>org.jacoco</groupId>
+<artifactId>jacoco-maven-plugin</artifactId>
+<version>${jacoco.version}</version>
+<executions>
+<execution>
+<id>prepare-agent</id>
+<goals>
+<goal>prepare-agent</goal>
+</goals>
+</execution>
+<execution>
+<id>report</id>
+<phase>test</phase>
+<goals>
+<goal>report</goal>
+</goals>
+</execution>
+</executions>
+</plugin>
+ 
+      <!-- SonarQube Scanner -->
+<plugin>
+<groupId>org.sonarsource.scanner.maven</groupId>
+<artifactId>sonar-maven-plugin</artifactId>
+<version>3.9.1.2184</version>
+</plugin>
+</plugins>
+ 
+    <!-- Nexus Configuration -->
+<distributionManagement>
+<repository>
+<id>maven-releases</id>
+<url>http://10.25.157.153:8081/repository/maven-releases/</url>
+</repository>
+<snapshotRepository>
+<id>maven-snapshots</id>
+<url>http://10.25.157.153:8081/repository/maven-snapshots/</url>
+</snapshotRepository>
+</distributionManagement>
+</build>
 </project>
