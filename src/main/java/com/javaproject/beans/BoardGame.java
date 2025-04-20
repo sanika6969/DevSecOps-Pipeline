@@ -1,19 +1,30 @@
 package com.javaproject.beans;
-
-import java.util.List;
-
-import lombok.Data;
-
-@Data
+ 
 public class BoardGame {
-
-    private Long id;
     private String name;
-    private int level;
+    private String level;
     private int minPlayers;
-    private String maxPlayers;
+    private int maxPlayers;
     private String gameType;
-
-    private List<Review> reviews;
-
+ 
+    // Add the getter methods
+    public String getName() {
+        return name;
+    }
+ 
+    public String getLevel() {
+        return level;
+    }
+ 
+    public int getMinPlayers() {
+        return minPlayers;
+    }
+ 
+    public int getMaxPlayers() {
+        return maxPlayers;
+    }
+ 
+    public String getGameType() {
+        return gameType;
+    }
 }
