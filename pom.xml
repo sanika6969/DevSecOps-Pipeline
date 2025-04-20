@@ -87,19 +87,11 @@
       <scope>provided</scope>
     </dependency>
 
-    <!-- Spring Boot Starter Test (includes MockMvc) -->
+    <!-- Spring Boot Starter Test (includes MockMvc and other testing utilities) -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
-    </dependency>
-
-    <!-- Spring Test module to resolve MockMvcRequestBuilders -->
-    <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-test</artifactId>
-        <version>${spring-boot.version}</version>
-        <scope>test</scope>
     </dependency>
   </dependencies>
 
