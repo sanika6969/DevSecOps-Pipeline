@@ -17,4 +17,4 @@ COPY --from=builder /app/target/*.jar app.jar
 EXPOSE 8080
 
 # Run the application securely
-CMD ["app.jar"]
+CMD ["java","-jar","app.jar"]
