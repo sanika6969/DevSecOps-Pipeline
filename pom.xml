@@ -56,34 +56,10 @@
       <scope>provided</scope>
     </dependency>
 
-    <!-- Spring Test Dependency for JUnit 5 -->
+    <!-- Spring Boot Test Starter (Includes JUnit 5) -->
     <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-test</artifactId>
-      <version>5.3.15</version> <!-- Ensure it's compatible with your Spring Boot version -->
-      <scope>test</scope>
-    </dependency>
-
-    <!-- JUnit 5 Dependencies -->
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-api</artifactId>
-      <version>5.8.2</version> <!-- Use the latest stable version -->
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-engine</artifactId>
-      <version>5.8.2</version> <!-- Use the latest stable version -->
-      <scope>test</scope>
-    </dependency>
-
-    <!-- Mockito for Mocking in Tests -->
-    <dependency>
-      <groupId>org.mockito</groupId>
-      <artifactId>mockito-core</artifactId>
-      <version>4.0.0</version>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
     </dependency>
 
@@ -95,10 +71,26 @@
       <scope>provided</scope>
     </dependency>
 
-    <!-- Spring Boot Testing Starter -->
+    <!-- JUnit 5 Dependencies (JUnit 5 is included with spring-boot-starter-test) -->
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-test</artifactId>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>5.8.2</version> <!-- Latest stable JUnit 5 version -->
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>5.8.2</version> <!-- Latest stable version -->
+      <scope>test</scope>
+    </dependency>
+
+    <!-- Mockito for Mocking in Tests -->
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>4.0.0</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -111,8 +103,8 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>${maven.compiler.plugin.version}</version>
         <configuration>
-          <source>21</source>
-          <target>21</target>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
           <annotationProcessorPaths>
             <path>
               <groupId>org.projectlombok</groupId>
@@ -123,10 +115,11 @@
         </configuration>
       </plugin>
 
-      <!-- Spring Boot packaging -->
+      <!-- Spring Boot packaging plugin -->
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+        <version>${spring-boot.version}</version>
       </plugin>
 
       <!-- Surefire for unit tests -->
@@ -137,13 +130,6 @@
         <configuration>
           <useModulePath>false</useModulePath>
         </configuration>
-      </plugin>
-
-      <!-- Deploy plugin (Nexus) -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-deploy-plugin</artifactId>
-        <version>3.8.1</version>
       </plugin>
     </plugins>
   </build>
