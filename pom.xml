@@ -32,7 +32,13 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 <artifactId>spring-boot-starter-web</artifactId>
 <version>3.2.5</version> <!-- Add version -->
 </dependency>
- 
+
+<dependency>
+<groupId>org.springframework</groupId>
+<artifactId>spring-jdbc</artifactId>
+<version>5.3.20</version> <!-- Make sure the version matches the Spring version you're using -->
+</dependency>
+
     <!-- Test -->
 <dependency>
 <groupId>org.springframework.boot</groupId>
