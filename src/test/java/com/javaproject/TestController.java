@@ -4,18 +4,14 @@ import com.javaproject.beans.BoardGame;
 import com.javaproject.beans.Review;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.junit.jupiter.api.Test;
-import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import java.util.List;
-import java.util.ArrayList;
 
-@RestController
+@WebMvcTest(TestController.class)  // Focuses on testing only the web layer (controller)
 public class TestController {
 
     // Endpoint to get a board game by name
@@ -48,8 +44,8 @@ public class TestController {
         return "Redirected to new game page";
     }
 
-    // A simple test using MockMvc for the above endpoints
-    @SpringJUnitConfig
+    // Test Controller Test Class
+    @WebMvcTest(TestController.class)  // Used to test only the controller
     public static class TestControllerTest {
 
         @Autowired
