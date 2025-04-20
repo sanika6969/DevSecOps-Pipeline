@@ -24,22 +24,23 @@ class TestDatabase {
         this.da = da;
     }
 
-    @Test
-    public void testDatabaseAddBoardGame() {
-        BoardGame boardGame = new BoardGame();
-        boardGame.setName("onecard");
-        boardGame.setLevel(1);
-        boardGame.setMinPlayers(2);
-        boardGame.setMaxPlayers("+");
-        boardGame.setGameType("Party Game");
+ @Test
+public void testDatabaseAddBoardGame() {
+    BoardGame boardGame = new BoardGame();
+    boardGame.setName("onecard");
+    boardGame.setLevel("1"); // Or "Beginner", "Intermediate", etc.
+    boardGame.setMinPlayers(2);
+    boardGame.setMaxPlayers(6); // Or any realistic number
+    boardGame.setGameType("Party Game");
 
-        int originalSize = da.getBoardGames().size();
+    int originalSize = da.getBoardGames().size();
 
-        da.addBoardGame(boardGame);
-        int newSize = da.getBoardGames().size();
+    da.addBoardGame(boardGame);
+    int newSize = da.getBoardGames().size();
 
-        assertEquals(newSize, originalSize + 1);
-    }
+    assertEquals(originalSize + 1, newSize);
+}
+
 
     // @Test
     // public void testDatabaseAddReview() {
