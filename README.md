@@ -1,38 +1,83 @@
-<<<<<<< HEAD
-# 🚀 Corporate-Grade CI/CD Pipeline with DevSecOps
 
-## 📌 Overview
-This project implements a **fully automated, secure, and scalable CI/CD pipeline** for enterprise applications. It integrates **DevSecOps best practices** to ensure high availability, security, and observability in Kubernetes deployments.
+---
 
-![](boardgame.jpg)
+# Production-Ready DevSecOps Pipeline
 
-## 🎯 Key Features
-- **End-to-End CI/CD Automation** – Jenkins automates the entire pipeline from code commit to deployment.
-- **Enterprise-Grade Security** – Continuous security scanning with **SonarQube**, **Trivy**, and **KubeAudit**.
-- **Artifact Management** – Nexus is used to store and manage build artifacts efficiently.
-- **Containerized Deployments** – Dockerized applications are built, scanned, and deployed to **Kubernetes**.
-- **Full Observability** – Real-time monitoring with **Prometheus** & **Grafana** for proactive issue resolution.
-- **Zero Manual Intervention** – Completely hands-off from development to production.
+**Secure Kubernetes Deployment, Automation, and Monitoring on On-Premises vSphere**
 
-## 🏗️ Tech Stack & Tools Used
-- **CI/CD Automation**: Jenkins 🛠️
-- **Security Scanning**: SonarQube 🔍 | Trivy 🦠 | KubeAudit 🔒
-- **Artifact Repository**: Nexus 📦
-- **Containerization & Orchestration**: Docker 🐳 | Kubernetes 🚢
-- **Monitoring & Observability**: Prometheus 📈 | Grafana 📊
+---
 
-## 🔧 Pipeline Workflow
-1. **Code Commit & Push** – Developers push code to GitHub.
-2. **Jenkins Triggers Build** – Automated pipeline execution begins.
-3. **Code Quality & Security Scans** – SonarQube, Trivy, and KubeAudit ensure clean, secure code.
-4. **Build & Artifact Management** – Maven compiles code, artifacts are stored in Nexus.
-5. **Containerization & Image Scanning** – Docker builds images, scans for vulnerabilities, and pushes to DockerHub.
-6. **Kubernetes Deployment** – Jenkins deploys the application to Kubernetes.
-7. **Monitoring & Notifications** – Prometheus & Grafana track system health, with email alerts for failures.
+## Overview
 
-## 📖 Read the Full Blog  
-For a detailed walkthrough of this project, check out my blog post: [**ultimate-corporate-grade-devsecops-pipeline**](https://itspraduman.hashnode.dev/ultimate-corporate-grade-devsecops-pipeline)  
-=======
-# DevSecOps-Pipeline
-Ultimate Corporate-Grade DevSecOps Pipeline: Automated Kubernetes Deployment with Security, CI/CD, and Monitoring on VSphere(On-prem cloud)
->>>>>>> 6d7fdcf1bcc9a3de940521056fed1dfbbf846eb4
+This project sets up a complete DevSecOps pipeline using:
+
+- Rancher for Kubernetes management  
+- Jenkins for CI/CD  
+- Trivy for container scanning  
+- SonarQube for code analysis  
+- Nexus for artifact storage  
+- Prometheus and Grafana for monitoring  
+- All hosted on VMware vSphere
+
+---
+
+## Architecture
+
+- 5 VMs for core tools: SonarQube, Nexus, Jenkins, Prometheus, Grafana  
+- Kubernetes Cluster: 1 master and 2 worker nodes via Rancher RKE  
+- Secure CI/CD namespace using Kubernetes Network Policies
+
+---
+
+## Key Features
+
+1. **CI/CD Pipeline**
+   - Jenkinsfile with Maven, SonarQube, Nexus, and Trivy integration  
+   - GitHub integration  
+   - Email notifications via SMTP  
+
+2. **Security**
+   - Kubernetes network policies  
+   - Trivy for image vulnerability scanning  
+
+3. **Monitoring**
+   - Prometheus for metrics collection  
+   - Grafana for dashboards and visualization  
+
+---
+
+## Quick Setup Steps
+
+1. Create 5 Ubuntu VMs (minimum 4GB RAM, 20GB disk)  
+2. Install Docker on SonarQube and Nexus VMs  
+3. Deploy SonarQube and Nexus using Docker  
+4. Install Rancher and provision the Kubernetes cluster  
+5. Apply Kubernetes network policies  
+6. Install Jenkins, Trivy, and Maven  
+7. Configure Jenkins CI/CD pipeline  
+8. Set up Prometheus and Grafana for monitoring  
+
+---
+
+## Resources Included
+
+- Jenkinsfile  
+- pom.xml  
+- Kubernetes YAMLs for all deployments  
+
+---
+
+## Monitoring Dashboards
+
+Monitor and visualize:
+- CI/CD pipeline performance  
+- System and VM metrics  
+- Kubernetes cluster health  
+
+---
+
+## Security and Compliance
+
+The pipeline integrates static analysis, image scanning, and network policies to ensure secure and compliant software delivery.
+
+---
