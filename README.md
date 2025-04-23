@@ -7,6 +7,9 @@
 
 ---
 
+![DevSecOps block diagram drawio (1)](https://github.com/user-attachments/assets/81aaa600-0452-4e74-a8c1-89d1c3429e0b)
+
+
 ## Overview
 
 This project sets up a complete DevSecOps pipeline using:
